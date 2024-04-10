@@ -5,3 +5,7 @@ Author URI: https://zaynelee.com
 Version: 1.0
 Text Domain: myfirstwp
 */
+
+body {
+    background-color: pink;
+}
