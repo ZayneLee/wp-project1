@@ -51,6 +51,7 @@ body {
     padding: 4rem 0;
 }
 
+/* Blog styles */
 .blog main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -97,4 +98,34 @@ body {
 
 .blog .post-text-with-featured {
     grid-column: 2/-1;
+}
+
+/* Post styles */
+.single #post {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+}
+
+.single #post .post-header {
+    margin-bottom: 1rem;
+}
+
+.single #post .post-header h4 {
+    font-size: 1.5rem;
+}
+
+.single .post-featured {
+    display: flex;
+    justify-content: center;
+}
+
+.single .post-featured-image {
+    width: 600px;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px;
+    margin-bottom: 1rem;
 }

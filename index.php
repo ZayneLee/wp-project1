@@ -34,7 +34,16 @@
                                     <img src="<?php echo esc_url(wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ?>" class="post-featured-image">
                                 </a>
                                 <div class="post-text-with-featured">
-                                    <?php the_excerpt(); ?>
+                                    <?php
+                                    if (is_home()) {
+                                        if (has_excerpt()) {
+                                            echo get_the_excerpt();
+                                        } else {
+                                            echo wp_trim_words(get_the_content(), 30);
+                                        }
+                                    } elseif (is_single()) {
+                                        the_content();
+                                    } ?>
                                 </div>
                             </div>
                         </article>
