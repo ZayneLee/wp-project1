@@ -21,9 +21,14 @@
                         <article id="post">
                             <div class="post-header">
                                 <h4>
-                                    <a href="<?php the_permalink() ?>">
-                                        <?php the_title(); ?>
-                                    </a>
+                                    <?php if (!is_single()) { ?>
+                                        <a href="<?php the_permalink() ?>">
+                                            <?php the_title(); ?>
+                                        </a>
+                                    <?php } else {
+                                        the_title();
+                                    }
+                                    ?>
                                 </h4>
                                 <div class="post-meta">
                                     <!-- TODO: post meta here -->
@@ -32,9 +37,15 @@
 
                             <?php if (has_post_thumbnail()) { ?>
                                 <div class="post-body">
-                                    <a href="<?php the_permalink(); ?>" class="post-featured">
-                                        <img src="<?php echo esc_url(wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ?>" class="post-featured-image">
-                                    </a>
+                                    <?php if (!is_single()) { ?>
+                                        <a href="<?php the_permalink(); ?>" class="post-featured">
+                                            <img src="<?php echo esc_url(wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ?>" class="post-featured-image">
+                                        </a>
+                                    <?php } else { ?>
+                                        <div class="post-featured">
+                                            <img src="<?php echo esc_url(wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ?>" class="post-featured-image">
+                                        </div>
+                                    <?php } ?>
                                     <div class="post-text-with-featured">
                                         <?php
                                         if (is_home()) {

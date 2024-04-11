@@ -51,6 +51,33 @@ body {
     padding: 4rem 0;
 }
 
+/* Pagination */
+.pagination {
+    margin-top: 10rem;
+    text-align: center;
+}
+
+.pagination a {
+    text-decoration: none;
+    border: 1px solid #ddd;
+    padding: 0.25rem 0.5rem;
+}
+
+.pagination a.prev,
+.pagination a.next {
+    text-decoration: none;
+    border: none;
+}
+
+.pagination .current {
+    font-weight: bold;
+    border: 1px solid blue;
+    padding: 0.25rem 0.5rem;
+    background-color: blue;
+    color: white;
+}
+
+
 /* Blog styles */
 .blog main {
     display: grid;
