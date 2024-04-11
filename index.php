@@ -69,6 +69,13 @@
 
                     <?php } ?>
                 </main>
+                <div class="pagination">
+                    <?php
+                    // next_posts_link('&laquo; Older');
+                    // previous_posts_link('Newer &raquo;');
+                    the_posts_pagination();
+                    ?>
+                </div>
             <?php } else {
                 echo 'No posts';
             }
