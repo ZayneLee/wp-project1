@@ -29,23 +29,42 @@
                                     <!-- TODO: post meta here -->
                                 </div>
                             </div>
-                            <div class="post-body">
-                                <a href="<?php the_permalink(); ?>" class="post-featured">
-                                    <img src="<?php echo esc_url(wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ?>" class="post-featured-image">
-                                </a>
-                                <div class="post-text-with-featured">
-                                    <?php
-                                    if (is_home()) {
-                                        if (has_excerpt()) {
-                                            echo get_the_excerpt();
-                                        } else {
-                                            echo wp_trim_words(get_the_content(), 30);
-                                        }
-                                    } elseif (is_single()) {
-                                        the_content();
-                                    } ?>
+
+                            <?php if (has_post_thumbnail()) { ?>
+                                <div class="post-body">
+                                    <a href="<?php the_permalink(); ?>" class="post-featured">
+                                        <img src="<?php echo esc_url(wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'medium')[0]); ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ?>" class="post-featured-image">
+                                    </a>
+                                    <div class="post-text-with-featured">
+                                        <?php
+                                        if (is_home()) {
+                                            if (has_excerpt()) {
+                                                echo get_the_excerpt();
+                                            } else {
+                                                echo wp_trim_words(get_the_content(), 30);
+                                            }
+                                        } elseif (is_single()) {
+                                            the_content();
+                                        } ?>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php } else { ?>
+                                <div class="post-body">
+                                    <div class="post-text-without-featured">
+                                        <?php
+                                        if (is_home()) {
+                                            if (has_excerpt()) {
+                                                echo get_the_excerpt();
+                                            } else {
+                                                echo wp_trim_words(get_the_content(), 30);
+                                            }
+                                        } elseif (is_single()) {
+                                            the_content();
+                                        } ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
+
                         </article>
 
                     <?php } ?>
