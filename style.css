@@ -77,6 +77,45 @@ body {
     color: white;
 }
 
+/* Post header styles */
+.post-meta {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-top: 0.5rem;
+    padding-bottom: 0.25rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.post-meta>*:not(.avatar) {
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+}
+
+.post-meta .avatar {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.post-meta .post-author a {
+    text-decoration: none;
+}
+
+.post-meta .post-categories {
+    list-style: none;
+    display: inline-block;
+}
+
+.post-categories a {
+    text-decoration: none;
+}
+
+a[rel='tag'] {
+    text-decoration: none;
+}
+
 
 /* Blog styles */
 .blog main {
