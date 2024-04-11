@@ -15,6 +15,7 @@
             <?php
             if (have_posts()) { ?>
                 <main>
+                    <?php echo (!is_home() ? '<a class="to-home" href="' . esc_url(site_url('/')) . '">&laquo; Back to home</a>' : '') ?>
                     <?php while (have_posts()) {
                         the_post(); ?>
 
@@ -45,6 +46,13 @@
                                     <span class="post-time"><?php the_time('Y-m-d'); ?></span> |
                                     Cat: <?php the_category() ?> |
                                     <?php the_tags() ?>
+                                    <?php
+                                    if (is_single()) {
+                                        echo '|';
+                                        previous_post_link('%link', '&laquo; Prev');
+                                        next_post_link('%link', 'Next &raquo;');
+                                    }
+                                    ?>
                                 </div>
                             </div>
 

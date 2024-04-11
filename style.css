@@ -112,7 +112,9 @@ body {
     text-decoration: none;
 }
 
-a[rel='tag'] {
+a[rel='tag'],
+a[rel='prev'],
+a[rel='next'] {
     text-decoration: none;
 }
 
@@ -171,6 +173,14 @@ a[rel='tag'] {
 }
 
 /* Post styles */
+.to-home {
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
 .single #post {
     padding: 1rem;
     border: 1px solid #ddd;
