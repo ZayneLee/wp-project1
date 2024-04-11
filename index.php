@@ -31,7 +31,21 @@
                                     ?>
                                 </h4>
                                 <div class="post-meta">
-                                    <!-- TODO: post meta here -->
+
+                                    <?php echo get_avatar(
+                                        get_the_author_meta('ID'),
+                                        '18',
+                                        isset($default) ? $default : '',
+                                        isset($alt) ? $alt : '',
+                                        array('class' => array())
+                                    );
+                                    ?>
+                                    <span class="post-author">
+                                        <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))) ?>"><?php echo get_the_author_meta('display_name'); ?></a>
+                                    </span> |
+                                    <span class="post-time"><?php the_time('Y-m-d'); ?></span> |
+                                    Cat: <?php the_category() ?> |
+                                    <?php the_tags() ?>
                                 </div>
                             </div>
 
