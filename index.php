@@ -12,6 +12,19 @@
 <body <?php body_class() ?>>
     <div class="container">
         <div class="section-content">
+
+            <?php
+            if (!is_single()) { ?>
+                <div class="section-header">
+                    <?php if (is_archive()) {
+                        echo '<h2>' . get_the_archive_title() . '</h2>';
+                    } else {
+                        echo '<h2>' . get_bloginfo('name') . '</h2>';
+                    } ?>
+                </div>
+            <?php }
+            ?>
+
             <?php
             if (have_posts()) { ?>
                 <main>
@@ -69,7 +82,7 @@
                                     <?php } ?>
                                     <div class="post-text-with-featured">
                                         <?php
-                                        if (is_home()) {
+                                        if (is_home() || is_archive()) {
                                             if (has_excerpt()) {
                                                 echo get_the_excerpt();
                                             } else {
@@ -84,7 +97,7 @@
                                 <div class="post-body">
                                     <div class="post-text-without-featured">
                                         <?php
-                                        if (is_home()) {
+                                        if (is_home() || is_archive()) {
                                             if (has_excerpt()) {
                                                 echo get_the_excerpt();
                                             } else {
